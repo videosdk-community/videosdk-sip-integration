@@ -3,7 +3,7 @@ import twilio from "twilio";
 // Environment variables
 const accountSid = process.env.TWILIO_ACCOUNT_SID || "";
 const authToken = process.env.TWILIO_AUTH_TOKEN || "";
-const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER || "";
+const twilioPhoneNumber = process.env.NEXT_PUBLIC_TWILIO_PHONE_NUMBER || "";
 
 const client = twilio(accountSid, authToken);
 

@@ -78,8 +78,8 @@ export default function Participant({
           playsInline
         />
       ) : (
-        <div className="w-full h-[300px] flex flex-col items-center justify-center bg-gray-900/50">
-          <div className="w-20 h-20 rounded-full bg-gray-700 flex items-center justify-center mb-3">
+        <div className="w-full h-full flex flex-col items-center justify-center bg-gray-900/50">
+          <div className="w-full h-full bg-gray-700 flex items-center justify-center mb-3">
             <span className="text-2xl text-gray-300">
               {displayName?.charAt(0)?.toUpperCase()}
             </span>

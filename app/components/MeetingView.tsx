@@ -16,6 +16,7 @@ export default function MeetingView({
 }) {
   const [joined, setJoined] = useState<string | null>(null);
   const [isCopied, setIsCopied] = useState(false);
+  const tw_phone_number = process.env.NEXT_PUBLIC_TWILIO_PHONE_NUMBER;
 
   const { join } = useMeeting({
     onMeetingJoined: () => setJoined("JOINED"),
@@ -86,7 +87,9 @@ export default function MeetingView({
                   <Phone className="h-5 w-5 text-green-400" />
                   <p className="text-gray-300">Join via phone</p>
                 </div>
-                <p className="text-xl font-mono text-green-400">+12317511639</p>
+                <p className="text-xl font-mono text-green-400">
+                  {tw_phone_number}
+                </p>
               </div>
             </div>
           </div>
@@ -111,7 +114,9 @@ export default function MeetingView({
                 <p className="text-gray-400 text-xs">Dial to join</p>
               </div>
               <div>
-                <p className="text-lg font-mono text-green-400">+12317511639</p>
+                <p className="text-lg font-mono text-green-400">
+                  {tw_phone_number}
+                </p>
                 <p className="text-xs text-gray-400">Meeting ID: {meetingId}</p>
               </div>
             </div>

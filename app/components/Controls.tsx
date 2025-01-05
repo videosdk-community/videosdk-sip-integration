@@ -1,5 +1,6 @@
 "use client";
 
+import { useMeeting } from "@videosdk.live/react-sdk";
 import { Button } from "@/components/ui/button";
 import { Phone, PhoneOff } from "lucide-react";
 import { useOutboundCall } from "@/hooks/useOutboundCall";
@@ -13,7 +14,12 @@ export default function Controls({
 }) {
   const { makeCall, isCallInProgress, canMakeCall } = useOutboundCall();
   const { toast } = useToast();
+  const { end } = useMeeting();
 
+  const handleMeetingEnd = () => {
+    onMeetingEnd();
+    end();
+  };
   const handleOutboundCall = async () => {
     try {
       await makeCall();
@@ -45,7 +51,7 @@ export default function Controls({
           {isCallInProgress ? "Calling..." : "Make Call"}
         </Button>
 
-        <Button onClick={onMeetingEnd} variant="destructive">
+        <Button onClick={handleMeetingEnd} variant="destructive">
           <PhoneOff className="h-4 w-4 mr-2" />
           End Meeting
         </Button>

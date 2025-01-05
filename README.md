@@ -2,40 +2,21 @@
 
 VideoSDK provides a powerful platform for integrating modern communication protocols like **SIP (Session Initiation Protocol)** to bridge traditional telephony systems with VideoSDK-powered video conferencing. This Next.js application demonstrates how to manage **inbound** and **outbound SIP calls**, enabling seamless interactions between VOIP, PSTN, and VideoSDK meetings.
 
-## Why Use VideoSDK for SIP Integration?
-
-VideoSDK’s SIP capabilities allow developers to:
-
-- **Unify Communications**: Bridge traditional telephony systems (PSTN) with VideoSDK-powered video meetings.
-- **Enable Flexible Integration**: Connect to SIP endpoints or devices effortlessly, supporting a variety of use cases.
-- **Simplify Development**: Leverage VideoSDK's developer-friendly tools and APIs for rapid integration.
-
-With VideoSDK, building a robust, SIP-enabled communication solution has never been easier.
-
-## Key Features
-
-1. **Inbound Call Handling**:
-   - Receive calls from traditional phone systems or SIP endpoints.
-   - Dynamically connect these calls to VideoSDK meetings.
-2. **Outbound Call Handling**:
-
-   - Dial external phone numbers or SIP endpoints programmatically.
-   - Seamlessly link outbound calls to VideoSDK meetings.
-
-3. **Developer-Centric Tools**:
-   - Built on Next.js with modern API routes.
-   - Easily configurable via environment variables.
-
 ### Project Setup
 
 1. Clone the Repository
 
 ```bash
 git clone https://github.com/videosdk-community/videosdk-sip-integration.git
+```
+
+2. Navigate to project directory
+
+```bash
 cd videosdk-sip-integration
 ```
 
-2. Install Dependencies
+3. Install Dependencies
 
 ```bash
 npm install
@@ -61,7 +42,7 @@ TWILIO_ACCOUNT_SID=your-twilio-account-sid
 TWILIO_AUTH_TOKEN=your-twilio-auth-token
 VIDEOSDK_SIP_USERNAME=your-videosdk-sip-username
 VIDEOSDK_SIP_PASSWORD=your-videosdk-sip-password
-TWILIO_PHONE_NUMBER=your-twilio-phone-number
+NEXT_PUBLIC_TWILIO_PHONE_NUMBER=your-twilio-phone-number
 NEXT_APP_URL=http://localhost:3000 # Replace with your production URL
 ```
 
@@ -85,10 +66,14 @@ Access the application at [http://localhost:3000](http://localhost:3000).
    sip:<meetingId>@sip.videosdk.live
    ```
 
+![inbound](/public/images/inbound.png)
+
 ### Outbound Calls
 
 1. **API Endpoint**: Send a POST request to `/api/webhook/outbound` with the phone number and meeting ID.
 2. **Programmatic Dialing**: The app initiates the call and connects it to a VideoSDK meeting.
+
+![outbound](/public/images/outbound.png)
 
 ## Example Code
 

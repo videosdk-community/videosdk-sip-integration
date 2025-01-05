@@ -9,6 +9,9 @@ export async function createMeeting() {
       "Content-Type": "application/json",
       Authorization: AUTH_TOKEN as string,
     },
+    body: JSON.stringify({
+      geoFence: "us002",
+    }),
   });
 
   const data = await response.json();

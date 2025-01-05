@@ -15,6 +15,7 @@ interface JoinScreenProps {
 export default function JoinScreen({ onJoin }: JoinScreenProps) {
   const [meetingId, setMeetingId] = useState("");
   const [isCopied, setIsCopied] = useState(false);
+  const tw_phone_number = process.env.NEXT_PUBLIC_TWILIO_PHONE_NUMBER;
 
   const handleCopy = () => {
     if (!meetingId) return;
@@ -82,7 +83,7 @@ export default function JoinScreen({ onJoin }: JoinScreenProps) {
                 <p className="text-gray-300">Join via phone</p>
               </div>
               <p className="text-xl font-mono text-green-400 text-center">
-                +12317511639
+                {tw_phone_number}
               </p>
               {meetingId && (
                 <p className="text-xs text-gray-400 text-center">
